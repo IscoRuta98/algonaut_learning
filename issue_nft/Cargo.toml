@@ -6,5 +6,5 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-algonaut = {git = "https://github.com/manuelmauro/algonaut", rev = "11808fa3650712bbd903560306400730ecc1d7b5"}
+algonaut = { git = "https://github.com/manuelmauro/algonaut", branch = "main" }
 tokio = { version = "1", features = ["full"] }
