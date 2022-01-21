@@ -3,16 +3,12 @@ use algonaut::error::AlgonautError;
 use algonaut::model::algod::v2::PendingTransaction;
 use algonaut::transaction::account::Account;
 use algonaut::transaction::{CreateAsset, TxnBuilder};
-use dotenv::dotenv;
 use std::env;
 use std::error::Error;
 use std::time::{Duration, Instant};
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn Error>> {
-    // load variables in .env
-    dotenv().ok();
-
     // an account with some funds in our sandbox
     let creator = Account::from_mnemonic("biology blouse spot woman clap demise exotic entire tumble bullet orange atom hood muscle material become income museum purchase laundry off answer orbit above snow")?;
     println!("Creator: {:?}", creator.address());
