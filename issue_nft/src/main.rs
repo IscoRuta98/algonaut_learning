@@ -20,7 +20,7 @@ async fn main() -> anyhow::Result<()> {
     let t = TxnBuilder::with(
         params,
         CreateAsset::new(creator.address(), 1, 0, false)
-            .unit_name("NTLS".to_owned())
+            .unit_name("NTLS_DRT".to_owned())
             .asset_name("Nautilus_DRT".to_owned())
             .manager(creator.address())
             .reserve(creator.address())
