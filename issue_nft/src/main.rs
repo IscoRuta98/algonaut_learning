@@ -9,18 +9,18 @@ use std::time::{Duration, Instant};
 #[tokio::main]
 async fn main() -> anyhow::Result<()> {
     // an account with some funds in our sandbox
-    let creator = Account::from_mnemonic("biology blouse spot woman clap demise exotic entire tumble bullet orange atom hood muscle material become income museum purchase laundry off answer orbit above snow")?;
+    let creator = Account::from_mnemonic("maze fortune disagree inside sniff mail balcony parade error alert isolate acoustic choose dress music response room forget crash lottery chronic dragon second able mad")?;
     println!("Creator: {:?}", creator.address());
 
     // algod has a convenient method that retrieves basic information for a transaction
-    let algod = Algod::new(&env::var("ALGOD_URL")?, &env::var("ALGOD_TOKEN")?)?;
-
+    //let algod = Algod::new(&env::var("http://localhost:4001")?, &env::var("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")?)?;
+    let algod = Algod::new("http://localhost:4001", "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")?;
     let params = algod.suggested_transaction_params().await?;
 
     let t = TxnBuilder::with(
         params,
         CreateAsset::new(creator.address(), 1, 0, false)
-            .unit_name("NTLS".to_owned())
+            .unit_name("NTLS_DRT".to_owned())
             .asset_name("Nautilus_DRT".to_owned())
             .manager(creator.address())
             .reserve(creator.address())
